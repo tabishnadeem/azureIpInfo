@@ -19,7 +19,7 @@ const httpTrigger: AzureFunction = async function (context: Context): Promise<Fu
     if(ip){
         const ipInfo = await getIPInfo(ip);
         console.log(ipInfo);
-        return responseFactory({city:"this is my city",region:"this is my region"});
+        return responseFactory({city:ipInfo.city,region:ipInfo.region});
        
     }else{
 
