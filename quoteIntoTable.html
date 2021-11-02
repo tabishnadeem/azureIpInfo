@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generates Quotes</title>
+</head>
+<body>
+
+    <button>Add Quotes</button> <br>
+    <div></div>
+    <script>
+
+        let button = document.querySelector("button");
+
+        button.addEventListener('click',() => {
+            getQuote();
+        });
+
+        async function getQuote(){
+
+            let response = await fetch('https://api.chucknorris.io/jokes/random');
+            let quotes = await response.json();
+
+            // setInterval(() => {
+            //     console.log(quotes.value);    
+            // }, 3000);
+
+            // clearTimeout();
+
+            let table = document.createElement('table');
+            const tr = table.insertRow();
+            const td = tr.insertCell();
+            td.style.border = '1px solid black';
+            td.appendChild(document.createTextNode(quotes.value));
+            document.body.appendChild(table);
+
+            
+
+        }
+
+
+    </script>
+</body>
+</html>
